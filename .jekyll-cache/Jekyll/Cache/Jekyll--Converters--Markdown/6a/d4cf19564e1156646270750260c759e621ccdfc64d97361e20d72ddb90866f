@@ -1,0 +1,105 @@
+I"�<h2 id="setting-up-the-environment">Setting up the environment:</h2>
+
+<ol>
+  <li>First things first, clone the EVM puzzles <a href="https://github.com/fvictorio/evm-puzzles">repo</a>. This contains all of the challenges we’ll be going through to improve our understanding of EVM byetecode.</li>
+  <li>Get familiar with the tools we’ll be using by reading through the hardhat <a href="https://hardhat.org/getting-started/">docs</a> and playing around with <a href="https://www.evm.codes">evm.codes</a></li>
+  <li>Optional: Read and walkthrough 1st portion of noxx’s EVM <a href="https://noxx.substack.com/p/evm-deep-dives-the-path-to-shadowy?s=r">series</a></li>
+</ol>
+
+<h3 id="challenge-1">Challenge 1:</h3>
+<p>Our first challenge is located in /puzzles/puzzle_1.json. Challenge 1 contains the following:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+  "code": "3456FDFDFDFDFDFD5B00",
+  "askForValue": true,
+  "askForData": false
+}
+</code></pre></div></div>
+
+<details>
+<summary> Hint 1:</summary>
+<br />
+<div>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The "code" section contains EVM bytecode. 
+Try converting that to opcodes.
+</code></pre></div>    </div>
+    <p>(one way is to drop the bytecode into <a href="https://www.evm.codes/playground">evm.codes</a>)</p>
+  </div>
+</details>
+
+<details>
+<summary> Hint 2:</summary>
+<br />
+<div>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The corresponding EVM opcodes are:
+
+CALLVALUE	
+JUMP	
+REVERT	
+REVERT	
+REVERT	
+REVERT	
+REVERT	
+REVERT	
+JUMPDEST	
+STOP
+
+The goal of this challenge is to not cause a revert.
+</code></pre></div>    </div>
+  </div>
+</details>
+
+<details>
+<summary> Hint 3:</summary>
+<br />
+<div>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CALLVALUE takes the value of the current call in wei
+and places it on top of the stack. 
+JUMP takes the value on the top of the stack and moves
+the program counter to the offset of that value.
+
+
+How can we JUMP over the 6 REVERT 
+opcodes and land on the JUMPDEST?
+</code></pre></div>    </div>
+  </div>
+</details>
+
+<details>
+<summary> Hint 4:</summary>
+<br />
+<div>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Each of the opcodes are 1 byte in size
+</code></pre></div>    </div>
+  </div>
+</details>
+
+<details>
+<summary> Hint 5:</summary>
+<br />
+<div>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CALLVALUE //Offset 0	
+JUMP	  //Offset 1
+REVERT    //Offset 2	
+REVERT    //Offset 3	
+REVERT    //Offset 4	
+REVERT    //Offset 5	
+REVERT    //Offset 6	
+REVERT    //Offset 7	
+JUMPDEST  //Offset 8
+STOP
+</code></pre></div>    </div>
+  </div>
+</details>
+
+<details>
+<summary> Solution:</summary>
+<br />
+<div>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>To solve this level, we just need to pass in a value of 8 
+wei, so that CALLVALUE places 8 on the top of the stack 
+and JUMP performs a valid jump over the REVERT calls to JUMPDEST.
+</code></pre></div>    </div>
+  </div>
+</details>
+
+:ET
