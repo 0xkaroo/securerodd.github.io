@@ -1,0 +1,94 @@
+I"‚	<h3 id="challenge">Challenge:</h3>
+<p>Our second challenge is located in /puzzles/puzzle_2.json. Challenge 2 contains the following:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+  "code": "34380356FDFD5B00FDFD",
+  "askForValue": true,
+  "askForData": false
+}
+</code></pre></div></div>
+
+<details>
+<summary> Hint 1:</summary>
+<br />
+<div>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The corresponding EVM opcodes are:
+
+CALLVALUE	
+CODESIZE	
+SUB	
+JUMP	
+REVERT	
+REVERT	
+JUMPDEST	
+STOP	
+REVERT	
+REVERT
+
+</code></pre></div>    </div>
+  </div>
+</details>
+
+<details>
+<summary> Hint 2:</summary>
+<br />
+<div>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CALLVALUE takes the value of the current call in wei
+and places it on top of the stack. 
+CODESIZE takes the size of the code 
+and places it on the top of the stack.
+SUB subtracts the second value on the stack
+from the value on the top of the stack.
+
+
+How can we JUMP over the 2 REVERT 
+opcodes and land on the JUMPDEST?
+</code></pre></div>    </div>
+  </div>
+</details>
+
+<details>
+<summary> Hint 3:</summary>
+<br />
+<div>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The CODESIZE is 10 or a in Hex
+
+
+1  2  3  4  5  6  7  8  9  a
+34 38 03 56 FD FD 5B 00 FD FD
+</code></pre></div>    </div>
+  </div>
+</details>
+
+<details>
+<summary> Hint 4:</summary>
+<br />
+<div>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+CALLVALUE   //Offset 0
+CODESIZE //Offset 1
+SUB	     //Offset 2
+JUMP	    //Offset 3
+REVERT	    //Offset 4
+REVERT	    //Offset 5
+JUMPDEST //Offset 6
+STOP	    //Offset 7
+REVERT	    //Offset 8
+REVERT      //Offset 9
+
+</code></pre></div>    </div>
+  </div>
+</details>
+
+<details>
+<summary> Solution:</summary>
+<br />
+<div>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>To solve this level, we just need to pass in a value of 4 
+wei. This way CALLVALUE places 4 on the top of the stack.
+CODESIZE will then push 'a' to the top of the stack. 
+SUB will subtract 4 from 'a' and push 6 to the top of the stack 
+and JUMP performs a valid jump over the REVERT calls to JUMPDEST.
+</code></pre></div>    </div>
+  </div>
+</details>
+:ET

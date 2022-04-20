@@ -1,4 +1,4 @@
-I"ð<h2 id="setting-up-the-environment">Setting up the environment:</h2>
+I"ì<h2 id="setting-up-the-environment">Setting up the environment:</h2>
 
 <ol>
   <li>First things first, clone the EVM puzzles <a href="https://github.com/fvictorio/evm-puzzles">repo</a>. This contains all of the challenges weâ€™ll be going through to improve our understanding of EVM byetecode.</li>
@@ -6,7 +6,7 @@
   <li>Optional: Read and walkthrough 1st portion of noxxâ€™s EVM <a href="https://noxx.substack.com/p/evm-deep-dives-the-path-to-shadowy?s=r">series</a></li>
 </ol>
 
-<h3 id="challenge-1">Challenge 1:</h3>
+<h3 id="challenge">Challenge:</h3>
 <p>Our first challenge is located in /puzzles/puzzle_1.json. Challenge 1 contains the following:</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
   "code": "3456FDFDFDFDFDFD5B00",
