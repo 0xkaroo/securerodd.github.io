@@ -103,11 +103,11 @@ Read up on [ECDSA](https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signatur
 <summary> Hint 2:</summary>
 <br>
 <div markdown="1">
-(https://medium.com/asecuritysite-when-bob-met-alice/not-playing-randomly-the-sony-ps3-and-bitcoin-crypto-hacks-c1fe92bea9bc)
+[Similar Real World Hacks](https://medium.com/asecuritysite-when-bob-met-alice/not-playing-randomly-the-sony-ps3-and-bitcoin-crypto-hacks-c1fe92bea9bc)
 </div>
 </details>
 
-
+<details>
 <summary> Solution:</summary>
 <br>
 <div markdown="1">
