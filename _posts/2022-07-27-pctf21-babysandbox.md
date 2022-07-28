@@ -63,6 +63,9 @@ contract BabySandbox {
     }
 }
 ```
+</div>
+</details>
+
 <details>
 <summary> Setup.sol:</summary>
 <br>
@@ -92,8 +95,6 @@ contract Setup {
 </div>
 </details>
 
-</div>
-</details>
 
 The hints and solutions for this level can be found below:
 
@@ -122,7 +123,7 @@ The solution for this level can be found below:
 Putting all of the info from our hints together, we can see that the sandbox is the staticcall operation. It is used as a check to ensure that we do not perform state change operations before the contract goes through and performs an unsafe delegatecall. If we can bypass the staticcall check, then we can make a delegatecall from the context of the sandbox to an arbitrary address. This is useful, because the win condition is for the codesize of the sandbox to be 0. This can be achieved through the `selfdestruct()` function.
 
 Our solution is to simply handle a revert caused by a staticcall in order to return a non-zero value. We can achieve this with a try catch block and a couple of custom contracts: 
-
+</div>
 </details>
 
 <details>
