@@ -163,8 +163,6 @@ describe('[Challenge] babysandbox', function () {
 </div>
 </details>
 
-</div>
-</details>
 <details>
 <summary> Contract Solution:</summary>
 <br>
