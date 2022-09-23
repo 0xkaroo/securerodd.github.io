@@ -31,6 +31,8 @@ The puzzles for these challenges are located in `puzzles/`. Challenge 6 contains
 2A      5B                                                                      JUMPDEST
 2B      00                                                                      STOP
 ```
+</div>
+</details>
 
 <details>
 <summary> Solution:</summary>
